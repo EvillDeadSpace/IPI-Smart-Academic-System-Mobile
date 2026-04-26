@@ -1,1 +1,3 @@
-export type RootStackParamList = Record<string, object | undefined>;
+export type RootStackParamList = {
+  Placeholder: undefined;
+};

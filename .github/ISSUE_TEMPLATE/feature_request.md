@@ -1,21 +1,21 @@
 ---
 name: Feature request
-about: Prijedlog nove funkcionalnosti
+about: Suggest a new feature
 labels: enhancement
 ---
 
-## Opis funkcionalnosti
+## Description
 
-<!-- Šta tačno treba uraditi? Zašto je korisno? -->
+<!-- What should be built? Why is it useful? -->
 
-## Ko koristi ovu funkcionalnost?
+## Who uses this feature?
 
-<!-- Student, admin, profesor? -->
+<!-- Student, admin, professor? -->
 
-## Prijedlog implementacije
+## Proposed implementation
 
-<!-- Opciono — ako imaš ideju kako implementirati -->
+<!-- Optional — if you have an idea how to implement it -->
 
-## Alternativna rješenja
+## Alternatives considered
 
-<!-- Jesi li razmatrao druga rješenja? -->
+<!-- Have you considered other solutions? -->
