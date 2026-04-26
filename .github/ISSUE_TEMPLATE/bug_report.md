@@ -1,29 +1,29 @@
 ---
 name: Bug report
-about: Prijavi grešku u aplikaciji
+about: Report a bug in the app
 labels: bug
 ---
 
-## Opis buga
+## Description
 
-<!-- Šta se desilo? Šta si očekivao da se desi? -->
+<!-- What happened? What did you expect to happen? -->
 
-## Koraci za reprodukciju
+## Steps to reproduce
 
 1. 
 2. 
 3. 
 
-## Očekivano ponašanje
+## Expected behavior
 
-## Stvarno ponašanje
+## Actual behavior
 
-## Okruženje
+## Environment
 
 - Platform: Android / iOS
-- OS verzija: 
+- OS version: 
 - Expo SDK: 54
 
 ## Screenshot / Video
 
-<!-- Ako imaš, dodaj ovdje -->
+<!-- If available, add here -->

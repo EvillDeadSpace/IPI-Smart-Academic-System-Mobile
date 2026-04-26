@@ -1,52 +1,52 @@
 # Contributing Guide — IPI Smart Mobile
 
-## Branch strategija
+## Branch strategy
 
 ```
 main
  └── develop
-      ├── feature/naziv-funkcionalnosti
-      ├── fix/naziv-buga
-      └── chore/naziv-zadatka
+      ├── feature/feature-name
+      ├── fix/bug-name
+      └── chore/task-name
 ```
 
-| Branch | Svrha | Ko može push-ati direktno |
+| Branch | Purpose | Direct push |
 |---|---|---|
-| `main` | Production-ready. Merge samo iz `develop` via PR. | Nikad direktno. |
-| `develop` | Integracijska grana. Sve features idu ovdje. | Nikad direktno. |
-| `feature/*` | Nova funkcionalnost. | Autor grane. |
-| `fix/*` | Ispravka buga. | Autor grane. |
-| `chore/*` | Config, tooling, dependencije. | Autor grane. |
+| `main` | Production-ready. Merge from `develop` via PR only. | Never. |
+| `develop` | Integration branch. All features land here first. | Never. |
+| `feature/*` | New functionality. | Branch author. |
+| `fix/*` | Bug fixes. | Branch author. |
+| `chore/*` | Config, tooling, dependencies. | Branch author. |
 
 ## Workflow
 
 ```bash
-# 1. Uvijek kreni od ažurnog developa
+# 1. Always start from an up-to-date develop
 git checkout develop
 git pull origin develop
 
-# 2. Kreiraj feature granu
+# 2. Create a feature branch
 git checkout -b feature/login-screen
 
-# 3. Radi, commitaj
+# 3. Work, commit
 git add src/screens/LoginScreen.tsx
 git commit -m "feat(auth): add login screen with email/password fields"
 
-# 4. Push i otvori PR prema develop
+# 4. Push and open a PR targeting develop
 git push origin feature/login-screen
 ```
 
 ## Commit format
 
 ```
-<type>(<scope>): <kratki opis>
+<type>(<scope>): <short description>
 ```
 
-**Tipovi:** `feat`, `fix`, `refactor`, `chore`, `style`, `docs`, `test`
+**Types:** `feat`, `fix`, `refactor`, `chore`, `style`, `docs`, `test`
 
-**Scope** je opcionalan, koristi naziv modula: `auth`, `navigation`, `courses`, `grades`, itd.
+**Scope** is optional — use the module name: `auth`, `navigation`, `courses`, `grades`, etc.
 
-Primjeri:
+Examples:
 ```
 feat(auth): implement login with email and password
 fix(navigation): resolve deep link crash on Android
@@ -54,15 +54,15 @@ chore(deps): update react-navigation to 7.2.3
 refactor(api): extract error handling into interceptor
 ```
 
-## PR pravila
+## PR rules
 
-- PR se otvara prema `develop`, nikad direktno prema `main`
-- Naslov PR-a = naslov commita (conventional format)
-- CI mora prolaziti (lint + type-check) prije merge-a
-- Minimalno 1 review za merge u `develop`
-- `develop` → `main` merge radi se kao PR, squash nije obavezan
+- PRs target `develop`, never directly `main`
+- PR title follows the conventional commit format
+- CI must pass (lint + type-check) before merge
+- At least 1 review required to merge into `develop`
+- `develop` → `main` is done via PR
 
-## Lokalni setup
+## Local setup
 
 ```bash
 npm install

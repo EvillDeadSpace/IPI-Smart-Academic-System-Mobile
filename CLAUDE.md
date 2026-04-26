@@ -73,9 +73,10 @@ Commits: **Conventional Commits** format (`feat:`, `fix:`, `chore:`, `refactor:`
 
 **Path aliasi** (konfigurisani u `babel.config.js` i `tsconfig.json`):
 ```
-@components/  @screens/  @navigation/  @services/
-@hooks/       @types/    @constants/   @utils/   @store/
+@components/  @screens/    @navigation/  @services/
+@hooks/       @appTypes/   @constants/   @utils/   @store/
 ```
+⚠️ Alias za `src/types/` je `@appTypes/` (ne `@types/`) — `@types/` je rezervisan namespace u TypeScript-u za declaration files.
 
 **State pravilo:** Zustand = client/UI state. TanStack Query = server state (fetch, cache, loading, error). Ne koristiti oboje za iste podatke.
 
