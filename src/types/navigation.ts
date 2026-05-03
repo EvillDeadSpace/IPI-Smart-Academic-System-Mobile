@@ -1,3 +1,4 @@
 export type RootStackParamList = {
-  Placeholder: undefined;
+  Home: undefined;
+  Notifications: undefined;
 };

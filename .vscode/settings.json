@@ -1,0 +1,40 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.tabSize": 2,
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "emmet.includeLanguages": {
+    "typescriptreact": "javascriptreact"
+  },
+  "files.exclude": {
+    "**/.expo": true,
+    "**/node_modules": true,
+    "**/.git": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.expo": true,
+    "**/dist": true,
+    "**/web-build": true
+  },
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.js, ${capture}.d.ts",
+    "*.tsx": "${capture}.test.tsx, ${capture}.stories.tsx",
+    "package.json": "package-lock.json, .eslintrc*, eslint.config*, .prettierrc*, commitlint.config*, babel.config*, tsconfig*"
+  },
+  // Custom words for spell checking for Bosnian language
+  "cSpell.words": [
+    "Akademske",
+    "Akadmeski",
+    "Nepročitane",
+    "nepročitanih",
+    "Notifikacije",
+    "Novosti"
+  ]
+}

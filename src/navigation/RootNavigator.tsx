@@ -1,17 +1,22 @@
-import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '@appTypes/navigation';
+import HomeScreen from '@screens/HomeScreen';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+import NotificationScreen from '../screens/NotificationScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function RootNavigator() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        {/* Screens will be added here */}
-        <Stack.Screen name="Placeholder" component={() => <View />} />
-      </Stack.Navigator>
+      <SafeAreaProvider>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Notifications" component={NotificationScreen} />
+        </Stack.Navigator>
+      </SafeAreaProvider>
     </NavigationContainer>
   );
 }
