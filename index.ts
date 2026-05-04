@@ -1,4 +1,5 @@
 import { registerRootComponent } from 'expo';
+import './src/constants/unistyles';
 
 import App from './App';
 

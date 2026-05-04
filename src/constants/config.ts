@@ -1,3 +1,2 @@
-export const API_BASE_URL = __DEV__
-  ? 'http://localhost:3000/api'
-  : 'https://your-production-api.com/api';
+export const API_BASE_URL = 'https://ipi-smart-academic-system-dzhc.vercel.app/api';
+// Need setup for localdev
