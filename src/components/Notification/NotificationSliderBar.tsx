@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
-import { Props } from '../types/news';
+import { Props } from '../../types/news';
 
 const NotificationSliderBar = ({ data, onFilterChange, activeTab }: Props) => {
   const { styles } = useStyles(stylesheet);

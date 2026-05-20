@@ -8,13 +8,54 @@ import { createStyleSheet, useStyles } from 'react-native-unistyles';
 import { RootStackParamList } from '@appTypes/navigation';
 
 import { horizontalItems } from '../constants/const';
-import HorizontalItemBar from '../components/NotificationSliderBar';
+import HorizontalItemBar from '../components/Notification/NotificationSliderBar';
+import NewsCard from '../components/Notification/NewsCard';
+import { newsType } from '../types/news';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Notifications'>;
 
 const NotificationScreen = ({ navigation }: Props) => {
   const { styles } = useStyles(stylesheet);
   const [activeFilter, setActiveFilter] = useState('Sve');
+
+  const testNews: newsType[] = [
+    {
+      id: 1,
+      tagName: 'announcements',
+      title: 'Test za informatiku',
+      content: 'Sutra ispit iz informatike, pripremite se!',
+      likes: 0,
+      calendarNews: false,
+      eventDate: null,
+      online: false,
+      createdAt: new Date(Date.now() - 12 * 600000).toISOString(),
+      updatedAt: new Date().toISOString(),
+    },
+    {
+      id: 2,
+      tagName: 'announcements',
+      title: 'Test za informatiku',
+      content: 'Sutra ispit iz informatike, pripremite se!',
+      likes: 0,
+      calendarNews: false,
+      eventDate: null,
+      online: false,
+      createdAt: new Date(Date.now() - 12 * 600000).toISOString(),
+      updatedAt: new Date().toISOString(),
+    },
+    {
+      id: 3,
+      tagName: 'announcements',
+      title: 'Test za informatiku',
+      content: 'Sutra ispit iz informatike, pripremite se!',
+      likes: 0,
+      calendarNews: false,
+      eventDate: null,
+      online: false,
+      createdAt: new Date(Date.now() - 12 * 600000).toISOString(),
+      updatedAt: new Date().toISOString(),
+    },
+  ];
 
   return (
     <View style={styles.container}>
@@ -42,6 +83,11 @@ const NotificationScreen = ({ navigation }: Props) => {
               onFilterChange={setActiveFilter}
             />
           )}
+        />
+        <FlatList
+          data={testNews}
+          keyExtractor={item => item.id.toString()}
+          renderItem={({ item }) => <NewsCard news={item} />}
         />
       </SafeAreaView>
     </View>
