@@ -1,4 +1,5 @@
 import { QuickAccessItemsType } from '../types/QuickAccessTypes';
+import { TaskCardTypes } from '../types/TaskTypes';
 
 export const horizontalItems: { id: string; title: string; count: number }[] = [
   { id: '1', title: 'Sve', count: 6 },
@@ -30,4 +31,10 @@ export const QuickAccessItems: QuickAccessItemsType[] = [
     subtitle: '45% kompletirano',
   },
   { id: 'ispiti', title: 'Ispiti', icon: 'calendar-outline', color: 'red', subtitle: '2 aktivna' },
+];
+
+export const taskStatsItems: TaskCardTypes[] = [
+  { label: 'UKUPNO', value: 3, icon: 'document-text-outline', color: 'blue' },
+  { label: 'OVE SEDMICE', value: 3, icon: 'time-outline', color: 'yellow' },
+  { label: 'PROSJEK', value: 8.6, icon: 'trending-up-outline', color: 'green' },
 ];

@@ -1,9 +1,10 @@
-import { View, Text } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { QuickAccessItemsType } from '../../types/QuickAccessTypes';
+import { useAppNavigation } from '../../hooks/useAppNavigation';
 
 type IoniconsName = React.ComponentProps<typeof Ionicons>['name'];
 
@@ -23,13 +24,17 @@ const QuickAccessCard = ({ item }: Props) => {
   const { styles } = useStyles(stylesheet);
   const colors = colorMap[item.color] ?? colorMap.blue;
 
+  const navigation = useAppNavigation();
+
   return (
     <View style={styles.container}>
-      <View style={[styles.iconContainer, { backgroundColor: colors.bg }]}>
-        <Ionicons name={item.icon as IoniconsName} size={22} color={colors.icon} />
-      </View>
-      <Text style={styles.title}>{item.title}</Text>
-      {item.subtitle && <Text style={styles.subtitle}>{item.subtitle}</Text>}
+      <Pressable onPress={() => navigation.navigate('Tasks')}>
+        <View style={[styles.iconContainer, { backgroundColor: colors.bg }]}>
+          <Ionicons name={item.icon as IoniconsName} size={22} color={colors.icon} />
+        </View>
+        <Text style={styles.title}>{item.title}</Text>
+        {item.subtitle && <Text style={styles.subtitle}>{item.subtitle}</Text>}
+      </Pressable>
     </View>
   );
 };
@@ -54,6 +59,7 @@ const stylesheet = createStyleSheet(theme => ({
     fontSize: theme.typography.body,
     fontWeight: theme.fontWeight.bold,
     color: theme.colors.text,
+    marginTop: 8,
   },
   subtitle: {
     fontSize: theme.typography.caption,

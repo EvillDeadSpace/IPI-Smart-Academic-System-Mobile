@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import Header from '../components/Header';
-import QuickAccess from '../components/QuickAccess/QuickAccess';
+import QuickAccess from '../components/QuickAccessComponents/QuickAccess';
 
 const HomeScreen: React.FC = () => {
   const { styles } = useStyles(stylesheet);
@@ -28,7 +28,6 @@ const stylesheet = createStyleSheet(theme => ({
   },
   wrapper: {
     paddingHorizontal: theme.spacing.md,
-    paddingTop: theme.spacing.md,
   },
 }));
 
