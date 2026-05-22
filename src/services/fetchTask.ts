@@ -1,4 +1,4 @@
-import { TaskCardTypes } from './../types/TaskTypes';
+import { StudentAssignment, TaskCardTypes } from './../types/TaskTypes';
 import api from './api';
 
 interface HomeworkStatsResponse {
@@ -21,4 +21,9 @@ export const getAllTasks = async (email: string): Promise<TaskCardTypes[]> => {
     { label: 'OVE SEDMICE', value: stats.thisWeek, icon: 'time-outline', color: 'yellow' },
     { label: 'PROSJEK', value: stats.avgEcts, icon: 'trending-up-outline', color: 'green' },
   ];
+};
+
+export const getAssignmentTasks = async (email: string): Promise<StudentAssignment[]> => {
+  const response = await api.get<StudentAssignment[]>(`/assignments/student/${email}`);
+  return response.data;
 };

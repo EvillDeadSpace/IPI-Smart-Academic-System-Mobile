@@ -38,7 +38,7 @@ const stylesheet = createStyleSheet(theme => ({
     borderRadius: theme.radius.md,
     padding: theme.spacing.md,
     justifyContent: 'space-between',
-    minHeight: 90,
+    minHeight: 80,
     borderWidth: 2,
   },
   header: {
@@ -47,10 +47,12 @@ const stylesheet = createStyleSheet(theme => ({
     alignItems: 'flex-start',
   },
   label: {
-    fontSize: theme.typography.caption,
+    fontSize: 11,
     fontWeight: theme.fontWeight.bold,
     color: theme.colors.text,
     flexShrink: 1,
+    flexWrap: 'wrap',
+    flex: 1,
   },
   value: {
     fontSize: theme.typography.h2,

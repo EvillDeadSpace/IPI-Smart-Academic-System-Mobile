@@ -3,8 +3,9 @@ import React from 'react';
 import { useStyles, createStyleSheet } from 'react-native-unistyles';
 
 import { getGreeting } from '../../utils/HeaderUtils/TaskUtils/TaskUtilsFunctions';
-import { taskStatsItems } from '../../constants/const';
 import { useTaskQuery } from '../../hooks/useTaskQuery';
+import IsError from '../common/IsError';
+import IsLoading from '../common/IsLoading';
 
 import TaskCard from './TaskCard';
 
@@ -13,7 +14,7 @@ const HeaderTask = () => {
 
   const email = 'amar@amar.com';
 
-  const { isError, isLoading, tasks } = useTaskQuery(email);
+  const { isError, isLoading, tasks, refetch } = useTaskQuery(email);
 
   const username = 'Amar';
 
@@ -26,9 +27,17 @@ const HeaderTask = () => {
         {greeting}, {username}!
       </Text>
       <View style={styles.statsRow}>
-        {(tasks ?? []).map(item => (
-          <TaskCard key={item.label} item={item} />
-        ))}
+        {isLoading ? (
+          <>
+            <IsLoading />
+            <IsLoading />
+            <IsLoading />
+          </>
+        ) : isError || !tasks ? (
+          <IsError message="Nije moguće učitati zadatke." onRetry={refetch} />
+        ) : (
+          tasks.map(item => <TaskCard key={item.label} item={item} />)
+        )}
       </View>
     </View>
   );
