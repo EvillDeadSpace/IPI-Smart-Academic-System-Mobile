@@ -86,6 +86,10 @@ const lightTheme = {
     width: 40,
     height: 40,
   },
+  notificationImage: {
+    width: 21,
+    height: 21,
+  },
 };
 
 export const themes = {
