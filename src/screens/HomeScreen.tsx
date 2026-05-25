@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import Header from '../components/Header';
+import QuickAccess from '../components/QuickAccessComponents/QuickAccess';
 import NextLecture from '../components/Lecture/NextLecture';
 import StatsCard from '../components/StatsComponent/StatsCard';
 import { useStatsQuery } from '../hooks/useStatsQuery';
@@ -24,8 +25,9 @@ const HomeScreen: React.FC = () => {
   return (
     <View style={styles.container}>
       <StatusBar style="dark" />
-      <SafeAreaView>
+      <SafeAreaView style={styles.wrapper}>
         <Header />
+        <QuickAccess />
         <NextLecture />
         <View style={styles.statsRow}>
           {stats.map(stat => (
@@ -53,6 +55,9 @@ const stylesheet = createStyleSheet(theme => ({
     marginHorizontal: theme.spacing.md,
     marginTop: theme.spacing.md,
     gap: theme.spacing.md,
+  },
+  wrapper: {
+    paddingHorizontal: theme.spacing.md,
   },
 }));
 

@@ -1,20 +1,17 @@
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { FlatList, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
-import { RootStackParamList } from '@appTypes/navigation';
 
 import { horizontalItems } from '../constants/const';
+import HorizontalItemBar from '../components/NotificationSliderBar';
+import BackButton from '../components/BackButton';
 import HorizontalItemBar from '../components/Notification/NotificationSliderBar';
 import NewsCard from '../components/Notification/NewsCard';
 import { newsType } from '../types/news';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Notifications'>;
-
-const NotificationScreen = ({ navigation }: Props) => {
+const NotificationScreen = () => {
   const { styles } = useStyles(stylesheet);
   const [activeFilter, setActiveFilter] = useState('Sve');
 
@@ -62,9 +59,7 @@ const NotificationScreen = ({ navigation }: Props) => {
       <StatusBar style="dark" />
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.header}>
-          <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-            <Ionicons name="chevron-back" size={20} color="#0f172a" />
-          </TouchableOpacity>
+          <BackButton />
           <View style={styles.titleGroup}>
             <Text style={styles.title}>Notifikacije</Text>
             <Text style={styles.subtitle}>3 nepročitanih</Text>
@@ -110,17 +105,6 @@ const stylesheet = createStyleSheet(theme => ({
     paddingVertical: theme.spacing.sm,
     borderBottomWidth: 4,
     borderBottomColor: theme.colors.border,
-  },
-  backButton: {
-    width: theme.backButton.width,
-    height: theme.backButton.height,
-    borderRadius: theme.radius.sm,
-    borderWidth: theme.borderWidth.thin,
-    borderColor: theme.colors.border,
-    backgroundColor: theme.colors.surface,
-    alignItems: 'center',
-    justifyContent: 'center',
-    ...theme.shadow.sm,
   },
   titleGroup: {
     flex: 1,
