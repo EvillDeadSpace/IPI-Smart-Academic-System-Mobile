@@ -1,9 +1,20 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 import { Ionicons } from '@expo/vector-icons';
 
 import { useNextLecture } from '../../hooks/useLectureQuerry';
+import { NextLectureData } from '../../services/fetchLecture';
+
+import NextLectureSkeleton from './NextLectureSkeleton';
+
+const formatLecture = (lecture: NextLectureData) => {
+  const timeRange = `${lecture.startTime} – ${lecture.endTime}`;
+  return {
+    header: `SLJEDEĆE PREDAVANJE · ${lecture.countdown.toUpperCase()}`,
+    details: `${timeRange} · ${lecture.room} · Prof. ${lecture.professor.fullName}`,
+  };
+};
 
 const HARDCODED_EMAIL = 'amar@amar.com';
 
@@ -13,8 +24,8 @@ const NextLecture = () => {
 
   if (isLoading) {
     return (
-      <View style={[styles.card, styles.centered]}>
-        <ActivityIndicator color="#ffffff" />
+      <View style={styles.card}>
+        <NextLectureSkeleton />
       </View>
     );
   }
@@ -27,9 +38,7 @@ const NextLecture = () => {
     );
   }
 
-  const timeRange = `${nextLecture.startTime} – ${nextLecture.endTime}`;
-  const details = `${timeRange} · ${nextLecture.room} · Prof. ${nextLecture.professor.fullName}`;
-  const header = `SLJEDEĆE PREDAVANJE · ${nextLecture.countdown.toUpperCase()}`;
+  const { header, details } = formatLecture(nextLecture);
 
   return (
     <View style={styles.card}>
@@ -52,14 +61,13 @@ const stylesheet = createStyleSheet(theme => ({
     backgroundColor: theme.colors.primary,
     borderRadius: theme.radius.lg,
     padding: theme.spacing.md,
-    marginHorizontal: theme.spacing.md,
     marginTop: theme.spacing.md,
     gap: theme.spacing.xs,
     ...theme.shadow.lg,
   },
   centered: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'center' as const,
+    justifyContent: 'center' as const,
     minHeight: 130,
   },
   header: {

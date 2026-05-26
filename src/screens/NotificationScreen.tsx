@@ -5,7 +5,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { horizontalItems } from '../constants/const';
-import HorizontalItemBar from '../components/NotificationSliderBar';
 import BackButton from '../components/BackButton';
 import HorizontalItemBar from '../components/Notification/NotificationSliderBar';
 import NewsCard from '../components/Notification/NewsCard';

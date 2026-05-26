@@ -1,5 +1,5 @@
 import { QuickAccessItemsType } from '../types/QuickAccessTypes';
-import { TaskCardTypes } from '../types/TaskTypes';
+import { AssignmentDifficulty } from '../types/TaskTypes';
 
 export const horizontalItems: { id: string; title: string; count: number }[] = [
   { id: '1', title: 'Sve', count: 6 },
@@ -39,3 +39,32 @@ export const filterPills: { id: string; label: string }[] = [
   { id: 'predani', label: 'Predani' },
   { id: 'kasne', label: 'Kasne' },
 ];
+
+export type CardVariant = 'active' | 'urgent' | 'late' | 'submitted' | 'graded';
+
+export const difficultyLabel: Record<AssignmentDifficulty, string> = {
+  LAGAN: 'Lagan',
+  SREDNJE: 'Srednje',
+  TESKO: 'Teško',
+};
+
+export const difficultyColor: Record<AssignmentDifficulty, string> = {
+  LAGAN: '#16a34a',
+  SREDNJE: '#f59e0b',
+  TESKO: '#dc2626',
+};
+
+export const difficultyDots: Record<AssignmentDifficulty, number> = {
+  LAGAN: 1,
+  SREDNJE: 2,
+  TESKO: 3,
+};
+
+export const DIFFICULTY_CONFIG: Record<
+  AssignmentDifficulty,
+  { label: string; dots: number; time: string; color: string }
+> = {
+  LAGAN: { label: 'Lagan', dots: 1, time: '~1h rada', color: '#4CAF50' },
+  SREDNJE: { label: 'Srednje', dots: 2, time: '~3h rada', color: '#FF9800' },
+  TESKO: { label: 'Teško', dots: 3, time: '~5h rada', color: '#F44336' },
+};

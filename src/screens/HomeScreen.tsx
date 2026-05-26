@@ -14,7 +14,7 @@ const HARD_CODED_EMAIL = 'amar@amar.com';
 
 const HomeScreen: React.FC = () => {
   const { styles, theme } = useStyles(stylesheet);
-  const { data, isLoading } = useStatsQuery(HARD_CODED_EMAIL);
+  const { data, isLoading, isError } = useStatsQuery(HARD_CODED_EMAIL);
 
   const stats = [
     { value: data?.avgGrade ?? 0, title: 'PROSJEK', color: theme.colors.primary },
@@ -27,7 +27,6 @@ const HomeScreen: React.FC = () => {
       <StatusBar style="dark" />
       <SafeAreaView style={styles.wrapper}>
         <Header />
-        <QuickAccess />
         <NextLecture />
         <View style={styles.statsRow}>
           {stats.map(stat => (
@@ -40,6 +39,7 @@ const HomeScreen: React.FC = () => {
             />
           ))}
         </View>
+        <QuickAccess />
       </SafeAreaView>
     </View>
   );
@@ -52,7 +52,6 @@ const stylesheet = createStyleSheet(theme => ({
   },
   statsRow: {
     flexDirection: 'row',
-    marginHorizontal: theme.spacing.md,
     marginTop: theme.spacing.md,
     gap: theme.spacing.md,
   },

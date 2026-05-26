@@ -3,87 +3,23 @@ import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
+import {
+  formatDate,
+  formatDaysLate,
+  formatShortDate,
+  formatTimeLeft,
+  truncate,
+  getVariant,
+} from '../../utils/HeaderUtils/TaskUtils/taskFormatters';
 import { StudentAssignment } from '../../types/TaskTypes';
+import { difficultyLabel, difficultyColor, difficultyDots } from '../../constants/const';
 
 type Props = {
   item: StudentAssignment;
+  onPress: () => void;
 };
 
-type CardVariant = 'active' | 'urgent' | 'late' | 'submitted' | 'graded';
-
-const difficultyLabel: Record<string, string> = {
-  LAGAN: 'Lagan',
-  SREDNJE: 'Srednje',
-  TESKO: 'Teško',
-};
-
-const difficultyColor: Record<string, string> = {
-  LAGAN: '#16a34a',
-  SREDNJE: '#f59e0b',
-  TESKO: '#dc2626',
-};
-
-const difficultyDots: Record<string, number> = {
-  LAGAN: 1,
-  SREDNJE: 2,
-  TESKO: 3,
-};
-
-const getVariant = (item: StudentAssignment): CardVariant => {
-  if (item.submission?.status === 'GRADED') return 'graded';
-  if (item.submission?.status === 'PENDING') return 'submitted';
-
-  const now = Date.now();
-  const due = new Date(item.dueDate).getTime();
-
-  if (due < now) return 'late';
-  if (due - now < 24 * 60 * 60 * 1000) return 'urgent';
-  return 'active';
-};
-
-const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'];
-const DAYS = ['Ned', 'Pon', 'Uto', 'Sri', 'Čet', 'Pet', 'Sub'];
-
-const formatTime = (date: Date): string => {
-  const h = String(date.getHours()).padStart(2, '0');
-  const m = String(date.getMinutes()).padStart(2, '0');
-  return `${h}:${m}`;
-};
-
-const formatDate = (iso: string): string => {
-  const date = new Date(iso);
-  const diff = Math.ceil((date.getTime() - Date.now()) / (1000 * 60 * 60 * 24));
-
-  if (diff === 0) return `Danas, ${formatTime(date)}`;
-  if (diff === 1) return `Sutra, ${formatTime(date)}`;
-  return `${DAYS[date.getDay()]}, ${date.getDate()}. ${MONTHS[date.getMonth()]}`;
-};
-
-const formatTimeLeft = (iso: string): string => {
-  const diffMs = new Date(iso).getTime() - Date.now();
-  const hours = Math.floor(diffMs / (1000 * 60 * 60));
-  const days = Math.floor(hours / 24);
-  if (hours < 24) return `za ${hours}h`;
-  return `za ${days} dana`;
-};
-
-const formatDaysLate = (iso: string): string => {
-  const days = Math.floor((Date.now() - new Date(iso).getTime()) / (1000 * 60 * 60 * 24));
-  return `Kasni ${days} ${days === 1 ? 'dan' : 'dana'}`;
-};
-
-const formatShortDate = (iso: string | null): string => {
-  if (!iso) return '';
-  const date = new Date(iso);
-  return `${date.getDate()}. ${MONTHS[date.getMonth()]}`;
-};
-
-const truncate = (str: string | null, max: number): string => {
-  if (!str) return '';
-  return str.length > max ? str.slice(0, max) + '...' : str;
-};
-
-const TaskItem = ({ item }: Props) => {
+const TaskItem = ({ item, onPress }: Props) => {
   const { styles, theme } = useStyles(stylesheet);
   const variant = getVariant(item);
   const subjectColor = item.subject.color;
@@ -196,7 +132,8 @@ const TaskItem = ({ item }: Props) => {
   };
 
   return (
-    <View
+    <Pressable
+      onPress={onPress}
       style={[
         styles.container,
         { borderLeftColor: variant === 'late' ? theme.colors.error : subjectColor },
@@ -234,7 +171,7 @@ const TaskItem = ({ item }: Props) => {
 
         <View style={styles.actionSlot}>{renderActionButton()}</View>
       </View>
-    </View>
+    </Pressable>
   );
 };
 

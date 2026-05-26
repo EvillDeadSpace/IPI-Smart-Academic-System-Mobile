@@ -21,6 +21,7 @@ export type StudentAssignment = {
   dueDate: string;
   maxPoints: number;
   professorS3Path: string | null;
+  professorName: string;
   subject: {
     id: number;
     name: string;
