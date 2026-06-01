@@ -1,6 +1,7 @@
 import { View, Text } from 'react-native';
 import React from 'react';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
+import { Ionicons } from '@expo/vector-icons';
 
 import { getInitials } from '../../utils/HeaderUtils/UtilsFunctionHeader';
 import { AssignmentDifficulty } from '../../types/TaskTypes';
@@ -53,6 +54,23 @@ const TaskDetailsCard = ({ title, professorName, maxPoints, difficulty, subjectN
           <Text style={styles.cellLabel}>PROCIJ. VRIJEME</Text>
           <Text style={styles.cellValue}>{config.time}</Text>
         </View>
+      </View>
+
+      <View style={styles.divider} />
+
+      <View style={styles.chipsRow}>
+        {(
+          [
+            { label: 'PDF · ZIP', icon: 'document-outline' },
+            { label: 'Max 10 MB', icon: 'cloud-upload-outline' },
+            { label: 'Individualno', icon: 'person-outline' },
+          ] as const
+        ).map(({ label, icon }) => (
+          <View key={label} style={styles.chip}>
+            <Ionicons name={icon} size={12} color="#64748b" />
+            <Text style={styles.chipText}>{label}</Text>
+          </View>
+        ))}
       </View>
     </View>
   );
@@ -138,6 +156,32 @@ const stylesheet = createStyleSheet(theme => ({
     marginLeft: 4,
     color,
   }),
+  divider: {
+    height: 1,
+    backgroundColor: '#eef2f7',
+  },
+  chipsRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    flexWrap: 'wrap',
+  },
+  chip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    backgroundColor: '#f1f5f9',
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: '#eef2f7',
+    paddingVertical: 4,
+    paddingHorizontal: 10,
+  },
+  chipText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#64748b',
+  },
 }));
 
 export default TaskDetailsCard;
