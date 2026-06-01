@@ -41,7 +41,7 @@ const QuickAccessCard = ({ item }: Props) => {
 
 const stylesheet = createStyleSheet(theme => ({
   container: {
-    width: '47%',
+    width: '48.5%',
     backgroundColor: theme.colors.surface,
     borderRadius: theme.radius.md,
     padding: theme.spacing.md,

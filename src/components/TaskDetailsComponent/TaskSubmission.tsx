@@ -141,8 +141,6 @@ const TaskSubmission = ({ assignmentId }: Props) => {
           </>
         )}
       </Pressable>
-
-      <Text style={styles.submitHint}>◎ Predaja se automatski potvrđuje SMS-om</Text>
     </View>
   );
 };
@@ -256,12 +254,6 @@ const stylesheet = createStyleSheet(theme => ({
     fontSize: theme.typography.body,
     fontWeight: theme.fontWeight.bold,
     color: '#fff',
-  },
-  submitHint: {
-    fontSize: 12,
-    color: theme.colors.muted,
-    textAlign: 'center',
-    marginTop: theme.spacing.sm,
   },
 }));
 

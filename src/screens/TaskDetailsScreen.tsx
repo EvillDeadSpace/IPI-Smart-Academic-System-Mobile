@@ -11,6 +11,7 @@ import TaskDetailsCard from '../components/TaskDetailsComponent/TaskDetailsCard'
 import { RootStackParamList } from '../types/navigation';
 import TaskDownload from '../components/TaskDetailsComponent/TaskDownload';
 import TaskSubmission from '../components/TaskDetailsComponent/TaskSubmission';
+import TaskQA from '../components/TaskDetailsComponent/TaskQA';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'TaskDetails'>;
 
@@ -46,6 +47,11 @@ export default function TaskDetailsScreen({ route }: Props) {
             professorName={route.params.professorName}
           />
           <TaskSubmission assignmentId={route.params.id} />
+          <TaskQA
+            assignmentId={route.params.id}
+            professorName={route.params.professorName}
+            subjectName={route.params.subject.name}
+          />
         </ScrollView>
       </SafeAreaView>
     </View>
