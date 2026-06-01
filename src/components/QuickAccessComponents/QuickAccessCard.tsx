@@ -28,7 +28,7 @@ const QuickAccessCard = ({ item }: Props) => {
 
   return (
     <View style={styles.container}>
-      <Pressable onPress={() => navigation.navigate('Tasks')}>
+      <Pressable onPress={() => navigation.navigate('MainTabs', { screen: 'Zadaci' })}>
         <View style={[styles.iconContainer, { backgroundColor: colors.bg }]}>
           <Ionicons name={item.icon as IoniconsName} size={22} color={colors.icon} />
         </View>

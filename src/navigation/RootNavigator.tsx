@@ -8,6 +8,8 @@ import NotificationScreen from '@screens/NotificationScreen';
 import TaskScreen from '@screens/TaskScreen';
 import TaskDetailsScreen from '@screens/TaskDetailsScreen';
 
+import BottomTabNavigator from './BottomTabNavigator';
+
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function RootNavigator() {
@@ -15,6 +17,7 @@ export default function RootNavigator() {
     <NavigationContainer>
       <SafeAreaProvider>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="MainTabs" component={BottomTabNavigator} />
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Notifications" component={NotificationScreen} />
           <Stack.Screen name="TaskDetails" component={TaskDetailsScreen} />

@@ -14,4 +14,5 @@ export type RootStackParamList = {
     difficulty: AssignmentDifficulty;
     professorS3Path: string | null;
   };
+  MainTabs: { screen: string } | undefined;
 };
