@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -9,6 +9,8 @@ import BackButton from '../components/BackButton';
 import TaskCountdownTimer from '../components/TaskDetailsComponent/TaskCountdownTimer';
 import TaskDetailsCard from '../components/TaskDetailsComponent/TaskDetailsCard';
 import { RootStackParamList } from '../types/navigation';
+import TaskDownload from '../components/TaskDetailsComponent/TaskDownload';
+import TaskSubmission from '../components/TaskDetailsComponent/TaskSubmission';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'TaskDetails'>;
 
@@ -26,7 +28,11 @@ export default function TaskDetailsScreen({ route }: Props) {
             <Text style={styles.subtitle}>Detalji zadatka</Text>
           </View>
         </View>
-        <View style={styles.content}>
+        <ScrollView
+          style={styles.content}
+          contentContainerStyle={styles.contentContainer}
+          showsVerticalScrollIndicator={false}
+        >
           <TaskCountdownTimer dueDate={route.params.dueDate} />
           <TaskDetailsCard
             title={route.params.title}
@@ -35,7 +41,12 @@ export default function TaskDetailsScreen({ route }: Props) {
             difficulty={route.params.difficulty}
             subjectName={route.params.subject.name}
           />
-        </View>
+          <TaskDownload
+            professorS3Path={route.params.professorS3Path}
+            professorName={route.params.professorName}
+          />
+          <TaskSubmission assignmentId={route.params.id} />
+        </ScrollView>
       </SafeAreaView>
     </View>
   );
@@ -54,8 +65,12 @@ const stylesheet = createStyleSheet(theme => ({
     paddingVertical: theme.spacing.sm,
   },
   content: {
+    flex: 1,
+  },
+  contentContainer: {
     paddingHorizontal: theme.spacing.md,
     paddingVertical: theme.spacing.md,
+    paddingBottom: theme.spacing.xxl,
   },
   detailsCard: {
     backgroundColor: theme.colors.surface,

@@ -12,5 +12,6 @@ export type RootStackParamList = {
     maxPoints: number;
     professorName: string;
     difficulty: AssignmentDifficulty;
+    professorS3Path: string | null;
   };
 };

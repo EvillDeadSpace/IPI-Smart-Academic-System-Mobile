@@ -92,6 +92,25 @@ Commits: **Conventional Commits** format (`feat:`, `fix:`, `chore:`, `refactor:`
 
 **State pravilo:** Zustand = client/UI state. TanStack Query = server state (fetch, cache, loading, error). Ne koristiti oboje za iste podatke.
 
+## Naming convention — OBAVEZNO
+
+**Sav kod se piše na engleskom.** Varijable, funkcije, tipovi, fajlovi, hookovi, konstante — sve na engleskom.
+
+Jedini izuzetak: user-facing stringovi (UI labele, poruke o greškama, tooltip tekst) mogu biti na bosanskom.
+
+Primjer:
+```ts
+// ✅
+const activeFilter = 'svi';
+const searchQuery = '';
+
+// ❌
+const aktivniFilter = 'svi';
+const pretragaUpita = '';
+```
+
+---
+
 ## Key conventions
 
 - Svaki screen prima navigation props tipiziran sa `NativeStackScreenProps<RootStackParamList, 'ScreenName'>`

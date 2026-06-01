@@ -40,6 +40,7 @@ const TaskList = () => {
             maxPoints: item.maxPoints,
             difficulty: item.difficulty,
             professorName: item.professorName,
+            professorS3Path: item.professorS3Path,
           })
         }
         key={item.id}

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Program Files/JetBrains//**)",
+      "Read(//c/Users/atubic/**)",
+      "Read(//c/Users/atubic/AppData/Local/Programs//**)",
+      "PowerShell([System.Environment]::GetEnvironmentVariable\\(\"JAVA_HOME\", \"User\"\\))",
+      "PowerShell(Get-ChildItem *)"
+    ]
+  }
+}
