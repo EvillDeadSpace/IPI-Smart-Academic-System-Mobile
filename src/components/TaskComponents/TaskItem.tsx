@@ -181,6 +181,8 @@ const stylesheet = createStyleSheet(theme => ({
     borderRadius: theme.radius.md,
     padding: theme.spacing.md,
     gap: theme.spacing.sm,
+    borderWidth: 1,
+    borderColor: theme.colors.border2,
     borderLeftWidth: 5,
     ...theme.shadow.sm,
   },

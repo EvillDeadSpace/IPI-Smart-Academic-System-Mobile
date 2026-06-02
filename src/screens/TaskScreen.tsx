@@ -1,5 +1,6 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar';
 import { useStyles, createStyleSheet } from 'react-native-unistyles';
 
 import HeaderTask from '../components/TaskComponents/TaskHeader';
@@ -9,10 +10,13 @@ const TaskScreen = () => {
   const { styles } = useStyles(stylesheet);
 
   return (
-    <SafeAreaView style={styles.wrapper}>
-      <HeaderTask />
-      <TaskList />
-    </SafeAreaView>
+    <>
+      <StatusBar />
+      <SafeAreaView style={styles.wrapper}>
+        <HeaderTask />
+        <TaskList />
+      </SafeAreaView>
+    </>
   );
 };
 
@@ -20,7 +24,6 @@ const stylesheet = createStyleSheet(theme => ({
   wrapper: {
     flex: 1,
     paddingHorizontal: theme.spacing.md,
-    paddingTop: theme.spacing.md,
   },
 }));
 

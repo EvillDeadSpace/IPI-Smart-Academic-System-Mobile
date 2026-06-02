@@ -1,5 +1,6 @@
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import React from 'react';
+import { Ionicons } from '@expo/vector-icons';
 import { useStyles, createStyleSheet } from 'react-native-unistyles';
 
 import { getGreeting } from '../../utils/HeaderUtils/TaskUtils/TaskUtilsFunctions';
@@ -22,10 +23,17 @@ const HeaderTask = () => {
 
   return (
     <View>
-      <Text>Domaci zadaci</Text>
-      <Text style={styles.welcomeText}>
-        {greeting}, {username}!
-      </Text>
+      <View style={styles.headerRow}>
+        <View style={styles.textContainer}>
+          <Text style={styles.subtitle}>Zadaci & domaće</Text>
+          <Text style={styles.title}>
+            {greeting}, {username}
+          </Text>
+        </View>
+        <TouchableOpacity style={styles.filterButton}>
+          <Ionicons name="options-outline" size={20} color="#0f172a" />
+        </TouchableOpacity>
+      </View>
       <View style={styles.statsRow}>
         {isLoading ? (
           <>
@@ -43,20 +51,41 @@ const HeaderTask = () => {
   );
 };
 const stylesheet = createStyleSheet(theme => ({
-  welcomeText: {
-    fontSize: theme.typography.h1,
+  headerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: theme.spacing.md,
+  },
+  textContainer: {
+    flex: 1,
+  },
+  subtitle: {
+    fontSize: theme.typography.caption,
+    color: theme.colors.muted,
+    marginBottom: 2,
+  },
+  title: {
+    fontSize: theme.typography.h2,
     fontWeight: theme.fontWeight.bold,
     color: theme.colors.text,
+  },
+  filterButton: {
+    width: 40,
+    height: 40,
+    borderRadius: theme.radius.sm,
+    borderWidth: theme.borderWidth.thin,
+    borderColor: theme.colors.border,
+    backgroundColor: theme.colors.surface,
+    alignItems: 'center',
+    justifyContent: 'center',
+    ...theme.shadow.sm,
   },
   statsRow: {
     flexDirection: 'row',
     alignItems: 'stretch',
     gap: theme.spacing.sm,
-    marginTop: theme.spacing.md,
-  },
-  secundText: {
-    fontSize: theme.typography.caption,
-    color: theme.colors.muted,
+    marginBottom: theme.spacing.md,
   },
 }));
 export default HeaderTask;

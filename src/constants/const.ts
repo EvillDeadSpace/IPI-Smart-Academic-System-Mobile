@@ -68,3 +68,29 @@ export const DIFFICULTY_CONFIG: Record<
   SREDNJE: { label: 'Srednje', dots: 2, time: '~3h rada', color: '#FF9800' },
   TESKO: { label: 'Teško', dots: 3, time: '~5h rada', color: '#F44336' },
 };
+
+export const DAY_NAMES = [
+  'Nedjelja',
+  'Ponedjeljak',
+  'Utorak',
+  'Srijeda',
+  'Četvrtak',
+  'Petak',
+  'Subota',
+];
+export const MONTH_NAMES = [
+  'Januar',
+  'Februar',
+  'Mart',
+  'April',
+  'Maj',
+  'Juni',
+  'Juli',
+  'August',
+  'Septembar',
+  'Oktobar',
+  'Novembar',
+  'Decembar',
+];
+
+export const DAYS = ['PON', 'UTO', 'SRI', 'ČET', 'PET', 'SUB', 'NED'];

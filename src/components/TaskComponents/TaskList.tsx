@@ -1,5 +1,6 @@
 import { View, ScrollView } from 'react-native';
 import React from 'react';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import SearchBar from '../common/SearchBar';
@@ -17,6 +18,7 @@ const HARDCODED_EMAIL = 'amar@amar.com';
 const TaskList = () => {
   const navigation = useAppNavigation();
   const { styles } = useStyles(stylesheet);
+  const tabBarHeight = useBottomTabBarHeight();
   const { assignments, isError, refetch, isLoading } = useAssignmentQuery(HARDCODED_EMAIL);
   const { filtered, counts, activeFilter, setActiveFilter, searchQuery, setSearchQuery } =
     useTaskFilters(assignments);
@@ -53,7 +55,10 @@ const TaskList = () => {
     <View style={styles.container}>
       <SearchBar value={searchQuery} onChange={setSearchQuery} />
       <TaskPills active={activeFilter} onChange={setActiveFilter} counts={counts} />
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.list}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={[styles.list, { paddingBottom: tabBarHeight + 16 }]}
+      >
         {renderContent()}
       </ScrollView>
     </View>
@@ -63,6 +68,7 @@ const TaskList = () => {
 const stylesheet = createStyleSheet(theme => ({
   container: {
     flex: 1,
+    backgroundColor: theme.colors.background,
   },
   list: {
     gap: theme.spacing.md,

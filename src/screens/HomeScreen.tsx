@@ -25,21 +25,23 @@ const HomeScreen: React.FC = () => {
   return (
     <View style={styles.container}>
       <StatusBar style="dark" />
-      <SafeAreaView style={styles.wrapper}>
+      <SafeAreaView>
         <Header />
-        <NextLecture />
-        <View style={styles.statsRow}>
-          {stats.map(stat => (
-            <StatsCard
-              key={stat.title}
-              value={stat.value}
-              title={stat.title}
-              color={stat.color}
-              isLoading={isLoading}
-            />
-          ))}
+        <View style={styles.content}>
+          <NextLecture />
+          <View style={styles.statsRow}>
+            {stats.map(stat => (
+              <StatsCard
+                key={stat.title}
+                value={stat.value}
+                title={stat.title}
+                color={stat.color}
+                isLoading={isLoading}
+              />
+            ))}
+          </View>
+          <QuickAccess />
         </View>
-        <QuickAccess />
       </SafeAreaView>
     </View>
   );
@@ -55,7 +57,7 @@ const stylesheet = createStyleSheet(theme => ({
     marginTop: theme.spacing.md,
     gap: theme.spacing.md,
   },
-  wrapper: {
+  content: {
     paddingHorizontal: theme.spacing.md,
   },
 }));
