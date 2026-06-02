@@ -8,13 +8,13 @@ import { horizontalItems } from '../constants/const';
 import BackButton from '../components/BackButton';
 import HorizontalItemBar from '../components/Notification/NotificationSliderBar';
 import NewsCard from '../components/Notification/NewsCard';
-import { newsType } from '../types/news';
+import { NewsType } from '../types/news';
 
 const NotificationScreen = () => {
   const { styles } = useStyles(stylesheet);
   const [activeFilter, setActiveFilter] = useState('Sve');
 
-  const testNews: newsType[] = [
+  const testNews: NewsType[] = [
     {
       id: 1,
       tagName: 'announcements',

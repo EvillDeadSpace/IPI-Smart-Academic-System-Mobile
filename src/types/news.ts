@@ -1,4 +1,4 @@
-export type newsType = {
+export type NewsType = {
   id: number;
   tagName: 'partnerships' | 'events' | 'achievements' | 'announcements';
   title: string;
@@ -12,7 +12,7 @@ export type newsType = {
 };
 
 // For NotificationSliderBar
-export type Props = {
+export type NotificationSliderBarProps = {
   data: {
     id: string;
     title: string;

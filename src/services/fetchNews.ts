@@ -1,7 +1,7 @@
-import { newsType } from './../types/news';
+import { NewsType } from './../types/news';
 import api from './api';
 
-export const getAllNews = async (): Promise<newsType[]> => {
-  const response = await api.get<newsType[]>('/news');
+export const getAllNews = async (): Promise<NewsType[]> => {
+  const response = await api.get<NewsType[]>('/news');
   return response.data;
 };

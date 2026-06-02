@@ -5,9 +5,9 @@ import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { tagConfig } from '../../constants/NotificationConst/const';
 import { formatDate } from '../../utils/NotificationUtils/NotificationUtils';
-import { newsType } from '../../types/news';
+import { NewsType } from '../../types/news';
 
-const NewsCard = ({ news }: { news: newsType }) => {
+const NewsCard = ({ news }: { news: NewsType }) => {
   const { styles } = useStyles(stylesheet);
   const config = tagConfig[news.tagName];
 

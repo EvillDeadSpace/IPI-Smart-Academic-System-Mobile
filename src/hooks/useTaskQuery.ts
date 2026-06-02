@@ -4,7 +4,7 @@ import { getAllTasks, getAssignmentTasks } from './../services/fetchTask';
 
 export const useTaskQuery = (email: string) => {
   const { data, isError, isLoading, refetch } = useQuery({
-    queryKey: ['tasks'],
+    queryKey: ['tasks', email],
     queryFn: () => getAllTasks(email),
   });
 
