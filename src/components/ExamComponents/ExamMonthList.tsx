@@ -1,6 +1,7 @@
-import { View, Text } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
 import React from 'react';
 import { useStyles, createStyleSheet } from 'react-native-unistyles';
+import { useAppNavigation } from '@hooks/useAppNavigation';
 
 import { useExamQuery } from '../../hooks/useExamQuery';
 import IsError from '../common/IsError';
@@ -13,6 +14,8 @@ const ExamMonthList = () => {
   const today = new Date();
   const { exam, isError, isLoading } = useExamQuery(today.getMonth(), today.getFullYear());
 
+  const navigation = useAppNavigation();
+
   const renderContent = () => {
     if (isLoading) {
       return <ExamMonthListSkeleton />;
@@ -24,7 +27,18 @@ const ExamMonthList = () => {
 
     // data ready — render each exam for this month
     return exam.map((item, index) => (
-      <ExamMonthListItem key={item.id} item={item} showDivider={index > 0} />
+      <Pressable
+        key={item.id}
+        onPress={() =>
+          navigation.navigate('ExamDetails', {
+            id: item.id,
+            month: today.getMonth(),
+            year: today.getFullYear(),
+          })
+        }
+      >
+        <ExamMonthListItem key={item.id} item={item} showDivider={index > 0} />
+      </Pressable>
     ));
   };
 

@@ -13,6 +13,7 @@ Claude je **profesor/mentor**, ne izvršilac. Korisnik uči programiranje i žel
 - Pohvali dobar pristup, ispravi loš — s objašnjenjem zašto je loš
 - Pitaj korisnika šta misli da treba uraditi prije nego ponudiš odgovor
 - Izuzetak: boilerplate/config fajlovi koji nisu dio učenja (npr. babel config, lint setup) — te možeš raditi sam
+- **Uvijek pročitaj relevantne fajlove PRIJE nego postaviš pitanje.** Nikad ne pitaj korisnika šta piše u fajlu — provjeri sam pa onda reaguj.
 
 ## Project context
 
@@ -114,6 +115,7 @@ const pretragaUpita = '';
 ## Key conventions
 
 - Svaki screen prima navigation props tipiziran sa `NativeStackScreenProps<RootStackParamList, 'ScreenName'>`
+- Navigacija u komponentama: uvijek `useAppNavigation()` iz `@hooks/useAppNavigation` — nikad direktno `useNavigation()` bez tipa (uzrokuje TS2345 error jer nije tipiziran sa `RootStackParamList`)
 - API error handling: TanStack Query `onError` + Axios interceptori u `api.ts`, ne try/catch po screenu
 - ESLint v9 flat config (`eslint.config.js`). Import order: builtin → external → internal → parent → sibling → index, sa praznom linijom između grupa
 - `@FlatCompat` je importan ali nekorišten u `eslint.config.js` — ukloniti pri prvoj prilici

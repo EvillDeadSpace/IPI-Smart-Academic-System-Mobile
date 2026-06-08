@@ -5,13 +5,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-import BackButton from '../components/BackButton';
-import TaskCountdownTimer from '../components/TaskDetailsComponent/TaskCountdownTimer';
-import TaskDetailsCard from '../components/TaskDetailsComponent/TaskDetailsCard';
 import { RootStackParamList } from '../types/navigation';
-import TaskDownload from '../components/TaskDetailsComponent/TaskDownload';
-import TaskSubmission from '../components/TaskDetailsComponent/TaskSubmission';
-import TaskQA from '../components/TaskDetailsComponent/TaskQA';
+import BackButton from '../components/BackButton';
+import TaskCountdownTimer from '../components/TaskDetailsHeader/TaskCountdownTimer';
+import TaskDetailsCard from '../components/TaskDetailsHeader/TaskDetailsCard';
+import TaskDownload from '../components/TaskDetailsHeader/TaskDownload';
+import TaskSubmission from '../components/TaskDetailsHeader/TaskSubmission';
+import TaskQA from '../components/TaskDetailsHeader/TaskQA';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'TaskDetails'>;
 

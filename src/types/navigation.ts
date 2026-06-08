@@ -15,4 +15,5 @@ export type RootStackParamList = {
     professorS3Path: string | null;
   };
   MainTabs: { screen: string } | undefined;
+  ExamDetails: { id: number; month: number; year: number };
 };

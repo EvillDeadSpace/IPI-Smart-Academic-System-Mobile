@@ -8,6 +8,8 @@ import NotificationScreen from '@screens/NotificationScreen';
 import TaskScreen from '@screens/TaskScreen';
 import TaskDetailsScreen from '@screens/TaskDetailsScreen';
 
+import ExamDetailsScreen from '../screens/ExamDetailsScreen';
+
 import BottomTabNavigator from './BottomTabNavigator';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -22,6 +24,7 @@ export default function RootNavigator() {
           <Stack.Screen name="Notifications" component={NotificationScreen} />
           <Stack.Screen name="TaskDetails" component={TaskDetailsScreen} />
           <Stack.Screen name="Tasks" component={TaskScreen} />
+          <Stack.Screen name="ExamDetails" component={ExamDetailsScreen} />
         </Stack.Navigator>
       </SafeAreaProvider>
     </NavigationContainer>
