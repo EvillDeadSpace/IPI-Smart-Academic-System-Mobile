@@ -7,6 +7,7 @@ import HomeScreen from '@screens/HomeScreen';
 import NotificationScreen from '@screens/NotificationScreen';
 import TaskScreen from '@screens/TaskScreen';
 import TaskDetailsScreen from '@screens/TaskDetailsScreen';
+import SubjectScreen from '@screens/SubjectScreen';
 
 import ExamDetailsScreen from '../screens/ExamDetailsScreen';
 
@@ -25,6 +26,7 @@ export default function RootNavigator() {
           <Stack.Screen name="TaskDetails" component={TaskDetailsScreen} />
           <Stack.Screen name="Tasks" component={TaskScreen} />
           <Stack.Screen name="ExamDetails" component={ExamDetailsScreen} />
+          <Stack.Screen name="Subject" component={SubjectScreen} />
         </Stack.Navigator>
       </SafeAreaProvider>
     </NavigationContainer>

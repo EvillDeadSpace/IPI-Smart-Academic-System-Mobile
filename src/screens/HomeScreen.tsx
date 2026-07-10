@@ -24,7 +24,7 @@ const HomeScreen: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="dark" />
+      <StatusBar style="auto" />
       <SafeAreaView>
         <Header />
         <View style={styles.content}>

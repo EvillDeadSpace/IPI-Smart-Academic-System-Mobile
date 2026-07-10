@@ -45,7 +45,6 @@ const Header: React.FC = () => {
 
 const stylesheet = createStyleSheet(theme => ({
   container: {
-    backgroundColor: theme.colors.surface,
     padding: theme.spacing.md,
     borderBottomWidth: 4,
     borderBottomColor: theme.colors.border,

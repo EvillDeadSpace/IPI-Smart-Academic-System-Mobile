@@ -16,4 +16,5 @@ export type RootStackParamList = {
   };
   MainTabs: { screen: string } | undefined;
   ExamDetails: { id: number; month: number; year: number };
+  Subject: undefined;
 };

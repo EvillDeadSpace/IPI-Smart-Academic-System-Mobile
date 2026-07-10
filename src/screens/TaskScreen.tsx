@@ -24,6 +24,7 @@ const stylesheet = createStyleSheet(theme => ({
   wrapper: {
     flex: 1,
     paddingHorizontal: theme.spacing.md,
+    backgroundColor: theme.colors.background,
   },
 }));
 
