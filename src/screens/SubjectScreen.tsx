@@ -6,8 +6,8 @@ import { useStyles, createStyleSheet } from 'react-native-unistyles';
 
 import HeaderSubject from '../components/SubjectComponents/HeaderSubject';
 import StatsCard from '../components/StatsComponent/StatsCard';
+import { useStatsQuery } from '../hooks/useStatsQuery';
 import { useSubjectLengthQuery } from '../hooks/useSubjectLengthQuery';
-import { useTaskQuery } from '../hooks/useTaskQuery';
 
 const HARD_CODED_EMAIL = 'amar@amar.com';
 
@@ -15,14 +15,14 @@ const SubjectScreen = () => {
   const { styles, theme } = useStyles(stylesheet);
 
   const { data, isLoading } = useSubjectLengthQuery(HARD_CODED_EMAIL);
-  const { tasks } = useTaskQuery(HARD_CODED_EMAIL);
+  const { data: studentStats } = useStatsQuery(HARD_CODED_EMAIL);
 
-  const avgGrade = tasks?.find(task => task.label === 'PROSJEK')?.value ?? 0;
-
+  // Need to implement a presence for counting.
+  // Right now is hardcoded to 83% for demonstration purposes.
   const stats = [
     { value: data?.progress.totalSubjects ?? 0, title: 'PREDMETA', color: theme.colors.primary },
-    { value: avgGrade, title: 'PROSJEK', color: theme.colors.success },
-    { value: data?.progress.passedSubjects ?? 0, title: 'POLOŽENO', color: theme.colors.warning },
+    { value: studentStats?.avgGrade ?? 0, title: 'PROSJEK', color: theme.colors.success },
+    { value: 83, title: 'PRISUSTVO', color: theme.colors.warning },
   ];
 
   return (

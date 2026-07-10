@@ -5,50 +5,43 @@ import { useStyles, createStyleSheet } from 'react-native-unistyles';
 import { useSemesterQuery } from '../../hooks/useSemesterQuery';
 import { getSemesterProgress } from '../../utils/HeaderUtils/semesterProgress';
 
+import HeaderSubjectSkeleton from './HeaderSubjectSkeleton';
+
 const HeaderSubject = () => {
   const { styles } = useStyles(stylesheet);
 
-  const { data, isError, isLoading } = useSemesterQuery();
+  const { data, isLoading } = useSemesterQuery();
 
   if (isLoading) {
-    return (
-      <View>
-        <Text>Loading...</Text>
-      </View>
-    );
+    return <HeaderSubjectSkeleton />;
   }
 
-  if (isError || !data) {
-    return (
-      <View>
-        <Text>Nema aktivnog semestra</Text>
-      </View>
-    );
-  }
-
-  const { currentWeek, percent, totalWeeks } = getSemesterProgress(data);
+  const progress = data ? getSemesterProgress(data) : null;
 
   return (
     <View>
       <View style={styles.headerRow}>
         <View style={styles.textContainer}>
-          <Text style={styles.subtitle}>{data.name}</Text>
+          <Text style={styles.subtitle}>{data?.name ?? 'Nema aktivnog semestra'}</Text>
           <Text style={styles.title}>Moji predmeti</Text>
         </View>
       </View>
 
-      <View style={styles.progressSection}>
-        <View style={styles.progressRow}>
-          <Text style={styles.weekText}>
-            Sedmica <Text style={styles.weekNumber}>{currentWeek}</Text> od {totalWeeks}
-          </Text>
-          <Text style={styles.percentText}>{percent}%</Text>
-        </View>
+      {progress && (
+        <View style={styles.progressSection}>
+          <View style={styles.progressRow}>
+            <Text style={styles.weekText}>
+              Sedmica <Text style={styles.weekNumber}>{progress.currentWeek}</Text> od{' '}
+              {progress.totalWeeks}
+            </Text>
+            <Text style={styles.percentText}>{progress.percent}%</Text>
+          </View>
 
-        <View style={styles.track}>
-          <View style={[styles.fill, { width: `${percent}%` }]} />
+          <View style={styles.track}>
+            <View style={[styles.fill, { width: `${progress.percent}%` }]} />
+          </View>
         </View>
-      </View>
+      )}
     </View>
   );
 };
