@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { QuickAccessItemsType } from '../../types/QuickAccessTypes';
-import { useAppNavigation } from '../../hooks/useAppNavigation';
+import { useAppNavigation } from '../../hooks/queryHooks/useAppNavigation';
 
 type IoniconsName = React.ComponentProps<typeof Ionicons>['name'];
 

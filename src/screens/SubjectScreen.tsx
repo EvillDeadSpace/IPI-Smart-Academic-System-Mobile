@@ -10,9 +10,9 @@ import SubjectPill from '../components/SubjectComponents/SubjectPill';
 import SubjectItem from '../components/SubjectComponents/SubjectItem';
 import SearchBar from '../components/common/SearchBar';
 import IsError from '../components/common/IsError';
-import { useStatsQuery } from '../hooks/useStatsQuery';
-import { useSubjectLengthQuery } from '../hooks/useSubjectLengthQuery';
-import { useEnrollmentQuery } from '../hooks/useEnrollmentQuery';
+import { useStatsQuery } from '../hooks/queryHooks/useStatsQuery';
+import { useSubjectLengthQuery } from '../hooks/queryHooks/useSubjectLengthQuery';
+import { useEnrollmentQuery } from '../hooks/queryHooks/useEnrollmentQuery';
 import { useSubjectFilters } from '../hooks/filterHooks/useSubjectFilters';
 
 const HARD_CODED_EMAIL = 'amar@amar.com';

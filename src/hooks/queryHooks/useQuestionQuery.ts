@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { getAllQuestion } from '../services/fetchQuestions';
+import { getAllQuestion } from '../../services/fetchQuestions';
 
 export const useQuestionQuery = (assignmentId: number) => {
   const { data, isLoading, isError, refetch } = useQuery({

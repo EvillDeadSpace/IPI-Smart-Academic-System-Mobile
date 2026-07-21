@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 import { Ionicons } from '@expo/vector-icons';
 
-import { useNextLecture } from '../../hooks/useLectureQuery';
+import { useNextLecture } from '../../hooks/queryHooks/useLectureQuery';
 import { NextLectureData } from '../../services/fetchLecture';
 
 import NextLectureSkeleton from './NextLectureSkeleton';

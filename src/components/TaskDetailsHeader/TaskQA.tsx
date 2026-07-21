@@ -4,7 +4,7 @@ import { createStyleSheet, useStyles } from 'react-native-unistyles';
 import { Ionicons } from '@expo/vector-icons';
 import { BottomSheetModal, BottomSheetTextInput, BottomSheetView } from '@gorhom/bottom-sheet';
 
-import { useQuestionQuery } from '../../hooks/useQuestionQuery';
+import { useQuestionQuery } from '../../hooks/queryHooks/useQuestionQuery';
 import { getInitials } from '../../utils/HeaderUtils/UtilsFunctionHeader';
 import { formatTimeAgo } from '../../utils/HeaderUtils/TaskUtils/taskFormatters';
 import { postQuestion } from '../../services/fetchQuestions';

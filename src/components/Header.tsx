@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { getInitials } from '../utils/HeaderUtils/UtilsFunctionHeader';
 //import { useNewsQuery } from '../hooks/useNewsQuery';
-import { useAppNavigation } from '../hooks/useAppNavigation';
+import { useAppNavigation } from '../hooks/queryHooks/useAppNavigation';
 
 const Header: React.FC = () => {
   const { styles } = useStyles(stylesheet);

@@ -4,10 +4,10 @@ import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import SearchBar from '../common/SearchBar';
-import { useAssignmentQuery } from '../../hooks/useTaskQuery';
+import { useAssignmentQuery } from '../../hooks/queryHooks/useTaskQuery';
 import IsError from '../common/IsError';
 import { useTaskFilters } from '../../hooks/filterHooks/useTaskFilters';
-import { useAppNavigation } from '../../hooks/useAppNavigation';
+import { useAppNavigation } from '../../hooks/queryHooks/useAppNavigation';
 
 import TaskPills from './TaskPills';
 import TaskItem from './TaskItem';

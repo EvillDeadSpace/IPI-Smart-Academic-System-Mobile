@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useStyles, createStyleSheet } from 'react-native-unistyles';
 
 import { getGreeting } from '../../utils/HeaderUtils/TaskUtils/TaskUtilsFunctions';
-import { useTaskQuery } from '../../hooks/useTaskQuery';
+import { useTaskQuery } from '../../hooks/queryHooks/useTaskQuery';
 import IsError from '../common/IsError';
 import IsLoading from '../common/IsLoading';
 

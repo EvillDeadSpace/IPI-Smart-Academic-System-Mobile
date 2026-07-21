@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { getAllStats } from '../services/fetchStats';
+import { getAllStats } from '../../services/fetchStats';
 
 export const useStatsQuery = (email: string) => {
   const { data, isLoading, isError } = useQuery({

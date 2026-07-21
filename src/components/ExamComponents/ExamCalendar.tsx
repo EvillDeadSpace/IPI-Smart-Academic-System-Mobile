@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useStyles, createStyleSheet } from 'react-native-unistyles';
 
 import { DAYS, MONTH_NAMES } from '../../constants/const';
-import { useExamQuery } from '../../hooks/useExamQuery';
+import { useExamQuery } from '../../hooks/queryHooks/useExamQuery';
 import { buildWeeks } from '../../utils/ExamUtils/CalendarFunction';
 
 type Props = {

@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { getExams } from '../services/examService';
+import { getExams } from '../../services/examService';
 
 export const useExamQuery = (month: number, year: number) => {
   const { isLoading, isError, data } = useQuery({

@@ -1,9 +1,9 @@
 import { View, Text, Pressable } from 'react-native';
 import React from 'react';
 import { useStyles, createStyleSheet } from 'react-native-unistyles';
-import { useAppNavigation } from '@hooks/useAppNavigation';
+import { useAppNavigation } from '@hooks/queryHooks/useAppNavigation';
 
-import { useExamQuery } from '../../hooks/useExamQuery';
+import { useExamQuery } from '../../hooks/queryHooks/useExamQuery';
 import IsError from '../common/IsError';
 
 import ExamMonthListSkeleton from './ExamMonthListSkeleton';

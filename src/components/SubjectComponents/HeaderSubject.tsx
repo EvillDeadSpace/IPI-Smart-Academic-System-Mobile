@@ -2,7 +2,7 @@ import { View, Text } from 'react-native';
 import React from 'react';
 import { useStyles, createStyleSheet } from 'react-native-unistyles';
 
-import { useSemesterQuery } from '../../hooks/useSemesterQuery';
+import { useSemesterQuery } from '../../hooks/queryHooks/useSemesterQuery';
 import { getSemesterProgress } from '../../utils/HeaderUtils/semesterProgress';
 
 import HeaderSubjectSkeleton from './HeaderSubjectSkeleton';

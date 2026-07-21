@@ -6,8 +6,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { RootStackParamList } from '../types/navigation';
-import { useExamQuery } from '../hooks/useExamQuery';
-import { useExamRegistrationQuery } from '../hooks/useExamRegistrationQuery';
+import { useExamQuery } from '../hooks/queryHooks/useExamQuery';
+import { useExamRegistrationQuery } from '../hooks/queryHooks/useExamRegistrationQuery';
 import ExamDetailsHeader from '../components/ExamDetailsComponent/ExamDetailsHeader';
 import ExamDetailsInfo from '../components/ExamDetailsComponent/ExamDetailsInfo';
 import ExamRegistration from '../components/ExamComponents/ExamRegistration';

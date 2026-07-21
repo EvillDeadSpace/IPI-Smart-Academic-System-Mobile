@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { getAllTasks, getAssignmentTasks } from './../services/fetchTask';
+import { getAllTasks, getAssignmentTasks } from '../../services/fetchTask';
 
 export const useTaskQuery = (email: string) => {
   const { data, isError, isLoading, refetch } = useQuery({

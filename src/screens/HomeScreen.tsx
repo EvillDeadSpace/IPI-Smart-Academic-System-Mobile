@@ -8,7 +8,7 @@ import Header from '../components/Header';
 import QuickAccess from '../components/QuickAccessComponents/QuickAccess';
 import NextLecture from '../components/Lecture/NextLecture';
 import StatsCard from '../components/StatsComponent/StatsCard';
-import { useStatsQuery } from '../hooks/useStatsQuery';
+import { useStatsQuery } from '../hooks/queryHooks/useStatsQuery';
 
 const HARD_CODED_EMAIL = 'amar@amar.com';
 
