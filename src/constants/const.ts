@@ -40,6 +40,13 @@ export const filterPills: { id: string; label: string }[] = [
   { id: 'kasne', label: 'Kasne' },
 ];
 
+export const filterSubjectPill: { id: string; label: string }[] = [
+  { id: 'tekuca_godina', label: 'Tekuca godina' },
+  { id: 'prenosni', label: 'Prenosni' },
+  { id: 'obavezni', label: 'Obavezni' },
+  { id: 'izborni', label: 'Izborni' },
+];
+
 export type CardVariant = 'active' | 'urgent' | 'late' | 'submitted' | 'graded';
 
 export const difficultyLabel: Record<AssignmentDifficulty, string> = {
