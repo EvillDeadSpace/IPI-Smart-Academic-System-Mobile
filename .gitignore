@@ -38,6 +38,10 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
+# graphify (generated knowledge graph)
+graphify-out/
+
 # generated native folders
 /ios
 /android
+.claude/settings.local.json

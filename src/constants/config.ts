@@ -1,3 +1,3 @@
-export const API_BASE_URL = __DEV__
-  ? 'http://localhost:3000/api'
-  : 'https://your-production-api.com/api';
+export const API_BASE_URL = 'https://ipi-smart-academic-system-dzhc.vercel.app/api';
+export const NLP_BASE_URL = 'https://faculty-nlp.onrender.com';
+// Need setup for localdev

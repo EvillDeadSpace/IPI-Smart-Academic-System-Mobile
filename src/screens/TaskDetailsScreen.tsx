@@ -1,0 +1,102 @@
+import { View, Text, ScrollView } from 'react-native';
+import React from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { createStyleSheet, useStyles } from 'react-native-unistyles';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+
+import { RootStackParamList } from '../types/navigation';
+import BackButton from '../components/BackButton';
+import TaskCountdownTimer from '../components/TaskDetailsHeader/TaskCountdownTimer';
+import TaskDetailsCard from '../components/TaskDetailsHeader/TaskDetailsCard';
+import TaskDownload from '../components/TaskDetailsHeader/TaskDownload';
+import TaskSubmission from '../components/TaskDetailsHeader/TaskSubmission';
+import TaskQA from '../components/TaskDetailsHeader/TaskQA';
+
+type Props = NativeStackScreenProps<RootStackParamList, 'TaskDetails'>;
+
+export default function TaskDetailsScreen({ route }: Props) {
+  const { styles } = useStyles(stylesheet);
+
+  return (
+    <View style={styles.container}>
+      <StatusBar style="auto" />
+      <SafeAreaView style={styles.container}>
+        <View style={styles.header}>
+          <BackButton />
+          <View style={styles.titleGroup}>
+            <Text style={styles.title}>{route.params.subject.name}</Text>
+            <Text style={styles.subtitle}>Detalji zadatka</Text>
+          </View>
+        </View>
+        <ScrollView
+          style={styles.content}
+          contentContainerStyle={styles.contentContainer}
+          showsVerticalScrollIndicator={false}
+        >
+          <TaskCountdownTimer dueDate={route.params.dueDate} />
+          <TaskDetailsCard
+            title={route.params.title}
+            professorName={route.params.professorName}
+            maxPoints={route.params.maxPoints}
+            difficulty={route.params.difficulty}
+            subjectName={route.params.subject.name}
+          />
+          <TaskDownload
+            professorS3Path={route.params.professorS3Path}
+            professorName={route.params.professorName}
+          />
+          <TaskSubmission assignmentId={route.params.id} />
+          <TaskQA
+            assignmentId={route.params.id}
+            professorName={route.params.professorName}
+            subjectName={route.params.subject.name}
+          />
+        </ScrollView>
+      </SafeAreaView>
+    </View>
+  );
+}
+
+const stylesheet = createStyleSheet(theme => ({
+  container: {
+    flex: 1,
+    backgroundColor: theme.colors.background,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: theme.spacing.md,
+    paddingVertical: theme.spacing.sm,
+  },
+  content: {
+    flex: 1,
+  },
+  contentContainer: {
+    paddingHorizontal: theme.spacing.md,
+    paddingVertical: theme.spacing.md,
+    paddingBottom: theme.spacing.xxl,
+  },
+  detailsCard: {
+    backgroundColor: theme.colors.surface,
+    borderRadius: theme.radius.lg,
+    padding: theme.spacing.md,
+    marginTop: theme.spacing.md,
+    ...theme.shadow.sm,
+  },
+  titleGroup: {
+    flex: 1,
+    paddingHorizontal: theme.spacing.md,
+  },
+  title: {
+    fontSize: theme.typography.h3,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.colors.primary,
+  },
+  subtitle: {
+    fontSize: theme.typography.caption,
+    color: theme.colors.muted,
+    fontWeight: theme.fontWeight.regular,
+  },
+}));
